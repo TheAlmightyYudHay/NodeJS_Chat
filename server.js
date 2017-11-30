@@ -1,7 +1,8 @@
-const http = require('http'),
-      fs   = require('fs'),
-      path = require('path'),
-      mime = require('mime');
+const http       = require('http'),
+      fs         = require('fs'),
+      path       = require('path'),
+      mime       = require('mime'),
+      chatServer = require('./lib/chat_server');
 
 let cache = {};
 
@@ -54,3 +55,5 @@ const server = http.createServer((request, response) => {
 server.listen(3000, () => {
     console.log('Server listening on port 3000.');
 });
+
+chatServer.listen(server);
